@@ -1,0 +1,15 @@
+{
+    "status": "USER_CANCELLED_OR_FAILED",
+    "local_ticket_id": "DRAFT-92344",
+    "message": "Payment synchronization interrupted. Local draft generated.",
+    "payload": {
+        "name": "Volvo",
+        "number": "",
+        "date": "2026-06-13",
+        "time": "12:00",
+        "capacity": 1,
+        "price": 150,
+        "source": "Chennai",
+        "destination": "Coimbatore"
+    }
+}

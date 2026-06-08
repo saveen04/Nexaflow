@@ -1,0 +1,145 @@
+[
+  {
+    "webhook_event": "support.neural_enrichment",
+    "timestamp": "Mon Jun  8 01:20:21 2026",
+    "payload_id": "evt_621854",
+    "data": {
+      "ticket_id": "TKT-2905",
+      "original_subject": "Fix it",
+      "short_note": "Missing Razorpay API keys are causing authentication failures for entertainment ticket purchases.",
+      "summary": "Orchestration crash due to missing Razorpay API keys, resulting in authentication failure for a movie ticket purchase.",
+      "classification": {
+        "category": "Entertainment",
+        "subcategory": "Payment Failure",
+        "priority": "High",
+        "error_type": "Authentication"
+      },
+      "intelligence": {
+        "sentiment": "Negative",
+        "confidence": 0.95,
+        "latency": "1.29s",
+        "fix_protocol": "Update the Razorpay API keys in the system configuration and ensure they are correctly formatted and securely stored."
+      },
+      "neural_response": "We apologize for the inconvenience. Our team is working to resolve the issue with the missing Razorpay API keys. Please try again later or contact our support team for assistance with your movie ticket purchase."
+    },
+    "diagnostics": {
+      "model": "groq-llama-3.3-70b",
+      "extracted_id": "NEW-TICKET"
+    }
+  },
+  {
+    "webhook_event": "support.neural_enrichment",
+    "timestamp": "Mon Jun  8 01:23:18 2026",
+    "payload_id": "evt_887637",
+    "data": {
+      "ticket_id": "TKT-1917",
+      "original_subject": "Fix it",
+      "short_note": "The Razorpay API keys are not configured correctly, causing the payment processing to fail",
+      "summary": "Razorpay API keys are missing, resulting in authentication failure for a movie ticket purchase",
+      "classification": {
+        "category": "Entertainment",
+        "subcategory": "Payment Failure",
+        "priority": "High",
+        "error_type": "Authentication"
+      },
+      "intelligence": {
+        "sentiment": "Negative",
+        "confidence": 0.9,
+        "latency": "1.11s",
+        "fix_protocol": "Configure the Razorpay API keys in the payment gateway settings and ensure they are valid and up-to-date"
+      },
+      "neural_response": "We apologize for the inconvenience. Our team is working to resolve the issue with the Razorpay API keys. Please try again later or contact our support team for further assistance."
+    },
+    "diagnostics": {
+      "model": "groq-llama-3.3-70b",
+      "extracted_id": "NEW-TICKET"
+    }
+  },
+  {
+    "webhook_event": "support.neural_enrichment",
+    "timestamp": "Mon Jun  8 02:00:56 2026",
+    "payload_id": "evt_321868",
+    "data": {
+      "ticket_id": "TKT-1926",
+      "original_subject": "Fix the errors",
+      "short_note": "Payment processing issue caused booking failure.",
+      "summary": "Payment synchronization error occurred during booking, resulting in a local draft generation.",
+      "classification": {
+        "category": "Bus Transport",
+        "subcategory": "Payment Failure",
+        "priority": "high",
+        "error_type": "Payment"
+      },
+      "intelligence": {
+        "sentiment": "Negative",
+        "confidence": 0.9,
+        "latency": "1.48s",
+        "latency_raw": 1.4787635803222656,
+        "fix_protocol": "Implement retry mechanism for payment synchronization and ensure stable payment gateway connection to prevent interruptions."
+      },
+      "neural_response": "We apologize for the inconvenience caused by the payment synchronization error. Our team is working to resolve the issue and prevent such occurrences in the future. Please try booking again or contact our support for assistance."
+    },
+    "diagnostics": {
+      "model": "groq-llama-3.3-70b",
+      "extracted_id": "NEW-TICKET"
+    }
+  },
+  {
+    "webhook_event": "support.neural_enrichment",
+    "timestamp": "Mon Jun  8 02:01:52 2026",
+    "payload_id": "evt_483863",
+    "data": {
+      "ticket_id": "TKT-5886",
+      "original_subject": "Fix the errors",
+      "short_note": "Payment processing issue occurred, resulting in a failed transaction.",
+      "summary": "Payment synchronization interrupted during booking from Chennai to Coimbatore",
+      "classification": {
+        "category": "Bus Transport",
+        "subcategory": "Payment Failure",
+        "priority": "medium",
+        "error_type": "Payment"
+      },
+      "intelligence": {
+        "sentiment": "Negative",
+        "confidence": 0.9,
+        "latency": "0.93s",
+        "latency_raw": 0.9284276962280273,
+        "fix_protocol": "Verify payment gateway configurations, ensure stable internet connection, and retry the transaction with a valid payment method."
+      },
+      "neural_response": "Sorry to hear that your payment was interrupted. Our team will look into this issue and assist you in completing your booking. Please try again or contact our support for further assistance."
+    },
+    "diagnostics": {
+      "model": "groq-llama-3.3-70b",
+      "extracted_id": "NEW-TICKET"
+    }
+  },
+  {
+    "webhook_event": "support.neural_enrichment",
+    "timestamp": "Mon Jun  8 02:03:11 2026",
+    "payload_id": "evt_397741",
+    "data": {
+      "ticket_id": "TKT-5760",
+      "original_subject": "Fix the errors",
+      "short_note": "Payment processing issue due to synchronization interruption",
+      "summary": "Payment synchronization interrupted for bus ticket from Chennai to Coimbatore",
+      "classification": {
+        "category": "Bus Transport",
+        "subcategory": "Payment Failure",
+        "priority": "high",
+        "error_type": "Payment"
+      },
+      "intelligence": {
+        "sentiment": "Negative",
+        "confidence": 0.9,
+        "latency": "1.02s",
+        "latency_raw": 1.0224850177764893,
+        "fix_protocol": "Retry payment synchronization and verify transaction status, ensure stable network connection and check for any payment gateway issues"
+      },
+      "neural_response": "We apologize for the inconvenience caused by the payment synchronization issue. Our team will investigate and assist you in completing your transaction. Please try again or contact our support for further assistance."
+    },
+    "diagnostics": {
+      "model": "groq-llama-3.3-70b",
+      "extracted_id": "NEW-TICKET"
+    }
+  }
+]

@@ -1,0 +1,29 @@
+{
+  "webhook_event": "support.neural_enrichment",
+  "timestamp": "Mon Jun  8 02:03:11 2026",
+  "payload_id": "evt_397741",
+  "data": {
+    "ticket_id": "TKT-5760",
+    "original_subject": "Fix the errors",
+    "short_note": "Payment processing issue due to synchronization interruption",
+    "summary": "Payment synchronization interrupted for bus ticket from Chennai to Coimbatore",
+    "classification": {
+      "category": "Bus Transport",
+      "subcategory": "Payment Failure",
+      "priority": "high",
+      "error_type": "Payment"
+    },
+    "intelligence": {
+      "sentiment": "Negative",
+      "confidence": 0.9,
+      "latency": "1.02s",
+      "latency_raw": 1.0224850177764893,
+      "fix_protocol": "Retry payment synchronization and verify transaction status, ensure stable network connection and check for any payment gateway issues"
+    },
+    "neural_response": "We apologize for the inconvenience caused by the payment synchronization issue. Our team will investigate and assist you in completing your transaction. Please try again or contact our support for further assistance."
+  },
+  "diagnostics": {
+    "model": "groq-llama-3.3-70b",
+    "extracted_id": "NEW-TICKET"
+  }
+}
