@@ -23,7 +23,7 @@ export function BrandLogo({ size = "md", href = "/", showName = true, className 
     <Link href={href} className={`inline-flex items-center gap-3 group ${className}`}>
       {/* No background wrapper — just the transparent PNG */}
       <Image
-        src="/Logo-nexaflow-removebg-preview.png"
+        src="/logo-nexaflow.png"
         alt="NexaFlow Logo"
         width={s.img}
         height={s.img}
