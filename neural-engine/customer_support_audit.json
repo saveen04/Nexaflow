@@ -141,5 +141,34 @@
       "model": "groq-llama-3.3-70b",
       "extracted_id": "NEW-TICKET"
     }
+  },
+  {
+    "webhook_event": "support.neural_enrichment",
+    "timestamp": "Mon Jun  8 09:47:36 2026",
+    "payload_id": "evt_831101",
+    "data": {
+      "ticket_id": "TKT-7497",
+      "original_subject": "Test",
+      "short_note": "This is a test ticket for system verification.",
+      "summary": "Test ticket for verification purposes",
+      "classification": {
+        "category": "General",
+        "subcategory": "General Inquiry",
+        "priority": "low",
+        "error_type": "None"
+      },
+      "intelligence": {
+        "sentiment": "Neutral",
+        "confidence": 0.9,
+        "latency": "1.04s",
+        "latency_raw": 1.0383992195129395,
+        "fix_protocol": "No action required as this is a test ticket."
+      },
+      "neural_response": "Thank you for creating a test ticket, this helps us verify our system's functionality."
+    },
+    "diagnostics": {
+      "model": "groq-llama-3.3-70b",
+      "extracted_id": "NEW-TICKET"
+    }
   }
 ]

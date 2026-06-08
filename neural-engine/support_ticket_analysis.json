@@ -1,26 +1,26 @@
 {
   "webhook_event": "support.neural_enrichment",
-  "timestamp": "Mon Jun  8 02:03:11 2026",
-  "payload_id": "evt_397741",
+  "timestamp": "Mon Jun  8 09:47:36 2026",
+  "payload_id": "evt_831101",
   "data": {
-    "ticket_id": "TKT-5760",
-    "original_subject": "Fix the errors",
-    "short_note": "Payment processing issue due to synchronization interruption",
-    "summary": "Payment synchronization interrupted for bus ticket from Chennai to Coimbatore",
+    "ticket_id": "TKT-7497",
+    "original_subject": "Test",
+    "short_note": "This is a test ticket for system verification.",
+    "summary": "Test ticket for verification purposes",
     "classification": {
-      "category": "Bus Transport",
-      "subcategory": "Payment Failure",
-      "priority": "high",
-      "error_type": "Payment"
+      "category": "General",
+      "subcategory": "General Inquiry",
+      "priority": "low",
+      "error_type": "None"
     },
     "intelligence": {
-      "sentiment": "Negative",
+      "sentiment": "Neutral",
       "confidence": 0.9,
-      "latency": "1.02s",
-      "latency_raw": 1.0224850177764893,
-      "fix_protocol": "Retry payment synchronization and verify transaction status, ensure stable network connection and check for any payment gateway issues"
+      "latency": "1.04s",
+      "latency_raw": 1.0383992195129395,
+      "fix_protocol": "No action required as this is a test ticket."
     },
-    "neural_response": "We apologize for the inconvenience caused by the payment synchronization issue. Our team will investigate and assist you in completing your transaction. Please try again or contact our support for further assistance."
+    "neural_response": "Thank you for creating a test ticket, this helps us verify our system's functionality."
   },
   "diagnostics": {
     "model": "groq-llama-3.3-70b",

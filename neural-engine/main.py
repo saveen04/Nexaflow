@@ -6,6 +6,11 @@ import random
 import time
 import json
 import os
+from dotenv import load_dotenv
+
+# Load environment variables (check local and parent)
+load_dotenv()
+load_dotenv(dotenv_path="../.env")
 
 app = FastAPI(title="NexaFlow Customer Support Engine")
 
@@ -21,6 +26,9 @@ async def get_api_key(header_key: str = Depends(api_key_header)):
 
 # Groq Configuration
 GROQ_API_KEY = os.getenv("GROQ_API_KEY")
+if not GROQ_API_KEY:
+    print("WARNING: GROQ_API_KEY not found in environment. Neural features will fail.")
+
 client = Groq(api_key=GROQ_API_KEY)
 
 class SupportTicket(BaseModel):
