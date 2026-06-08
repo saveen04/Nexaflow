@@ -29,8 +29,8 @@ export default function WebhookTestingPage() {
   const [response, setResponse] = useState(null)
   const [loading, setLoading] = useState(false)
   const [logs, setLogs] = useState([
-    { id: 1, type: "POST", endpoint: "/api/webhook/classify", status: 200, time: "142ms", timestamp: "12:45:02" },
-    { id: 2, type: "POST", endpoint: "/api/webhook/classify", status: 200, time: "890ms", timestamp: "11:30:15" },
+    { id: 1, type: "POST", endpoint: "/api/webhook/support", status: 200, time: "142ms", timestamp: "12:45:02" },
+    { id: 2, type: "POST", endpoint: "/api/webhook/support", status: 200, time: "890ms", timestamp: "11:30:15" },
   ])
 
   const handleTrigger = async () => {
@@ -38,7 +38,7 @@ export default function WebhookTestingPage() {
     setResponse(null)
     try {
       const parsed = JSON.parse(jsonPayload)
-      const res = await fetch("/api/webhook/classify", {
+      const res = await fetch("/api/webhook/support", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(parsed)
@@ -48,9 +48,9 @@ export default function WebhookTestingPage() {
       setLogs(prev => [{
         id: Date.now(),
         type: "POST",
-        endpoint: "/api/webhook/classify",
+        endpoint: "/api/webhook/support",
         status: 200,
-        time: `${data.meta?.latency || 0}ms`,
+        time: `${data.data?.intelligence?.latency || 0}`,
         timestamp: new Date().toLocaleTimeString()
       }, ...prev])
     } catch (e) {
@@ -155,19 +155,19 @@ export default function WebhookTestingPage() {
                         </div>
                         <div>
                           <div className="text-[10px] font-black uppercase tracking-widest text-slate-600">Predicted Class</div>
-                          <div className="text-xl font-black text-white uppercase italic">{response.classification.category}</div>
+                          <div className="text-xl font-black text-white uppercase italic">{response.data?.classification?.category || "Unknown"}</div>
                         </div>
                       </div>
 
                       <div className="space-y-4 pt-2">
                         <div className="flex justify-between text-[10px] font-black uppercase tracking-widest text-slate-600">
                           <span>Confidence Metric</span>
-                          <span className="text-white font-mono">{response.classification.confidence}%</span>
+                          <span className="text-white font-mono">{response.data?.intelligence?.confidence * 100 || 0}%</span>
                         </div>
                         <div className="h-2 bg-white/5 rounded-full overflow-hidden">
                           <motion.div
                             initial={{ width: 0 }}
-                            animate={{ width: `${response.classification.confidence}%` }}
+                            animate={{ width: `${(response.data?.intelligence?.confidence || 0) * 100}%` }}
                             transition={{ duration: 1 }}
                             className="h-full bg-[var(--color-primary)] shadow-[0_0_15px_var(--color-primary)]"
                           />
@@ -177,14 +177,14 @@ export default function WebhookTestingPage() {
                       <div className="space-y-3 pt-2">
                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-600">Neural Logic</span>
                         <p className="text-xs text-slate-400 leading-relaxed font-medium italic border-l-2 border-[var(--color-primary)]/30 pl-6">
-                          {response.classification.reasoning}
+                          {response.data?.short_note || "No reasoning provided."}
                         </p>
                       </div>
 
                       <div className="space-y-3 pt-2">
                         <span className="text-[10px] font-black uppercase tracking-widest text-slate-600">Suggested Action Tokens</span>
                         <div className="flex flex-wrap gap-2">
-                          {response.classification.suggestedActions.map((act, i) => (
+                          {(response.data?.intelligence?.fix_protocol || "Manual review required").split(" ").slice(0, 5).map((act, i) => (
                             <span key={i} className="px-4 py-2 bg-white/5 border border-white/10 rounded-xl text-[10px] font-black text-slate-400 hover:text-white hover:border-[var(--color-primary)]/30 transition-all cursor-default">
                               {act}
                             </span>
@@ -206,7 +206,7 @@ export default function WebhookTestingPage() {
             <div className="h-60 glass-card p-8 flex flex-col overflow-hidden">
               <div className="flex items-center justify-between mb-6 px-2">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.4em] text-slate-600">Request Pipeline</h4>
-                <button 
+                <button
                   onClick={() => setLogs([])}
                   className="text-[10px] font-black uppercase tracking-widest text-[var(--color-primary)] hover:text-white transition-colors"
                 >
