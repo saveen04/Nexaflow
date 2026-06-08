@@ -1,33 +1,31 @@
+
 const mongoose = require('mongoose');
 
-const mongoUri = 'mongodb://localhost:27017/ai-tickets';
+const MONGO_URI = 'mongodb://localhost:27017/nexaflow';
 
 const ErrorLogSchema = new mongoose.Schema({
-  logId: String,
-  type: String,
-  severity: String,
-  message: String,
-  stack: String,
-  metadata: mongoose.Schema.Types.Mixed,
-  timestamp: Date
+    logId: String,
+    type: String,
+    severity: String,
+    message: String,
+    stack: String,
+    metadata: Object,
+    timestamp: { type: Date, default: Date.now }
 });
 
-const ErrorLog = mongoose.models.ErrorLog || mongoose.model("ErrorLog", ErrorLogSchema);
+const ErrorLog = mongoose.models.ErrorLog || mongoose.model('ErrorLog', ErrorLogSchema);
 
-async function check() {
-  try {
-    await mongoose.connect(mongoUri);
-    console.log("Connected to MongoDB");
-    
-    const logs = await ErrorLog.find().sort({ timestamp: -1 }).limit(3);
-    console.log("LAST 3 ERROR LOGS:");
-    console.log(JSON.stringify(logs, null, 2));
-    
-    process.exit(0);
-  } catch (err) {
-    console.error("FAILED TO CHECK LOGS:", err);
-    process.exit(1);
-  }
+async function checkErrors() {
+    try {
+        await mongoose.connect(MONGO_URI);
+        console.log("Connected to MongoDB");
+        const logs = await ErrorLog.find().sort({ timestamp: -1 }).limit(5);
+        console.log(JSON.stringify(logs, null, 2));
+    } catch (err) {
+        console.error("Connection failed:", err.message);
+    } finally {
+        await mongoose.disconnect();
+    }
 }
 
-check();
+checkErrors();

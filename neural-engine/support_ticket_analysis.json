@@ -1,26 +1,26 @@
 {
   "webhook_event": "support.neural_enrichment",
-  "timestamp": "Mon Jun  8 09:47:36 2026",
-  "payload_id": "evt_831101",
+  "timestamp": "Mon Jun  8 10:54:53 2026",
+  "payload_id": "evt_932786",
   "data": {
-    "ticket_id": "TKT-7497",
-    "original_subject": "Test",
-    "short_note": "This is a test ticket for system verification.",
-    "summary": "Test ticket for verification purposes",
+    "ticket_id": "TKT-6909",
+    "original_subject": "Test Ticket",
+    "short_note": "The customer is seeking a refund due to a delayed bus.",
+    "summary": "Bus delayed, refund requested",
     "classification": {
-      "category": "General",
-      "subcategory": "General Inquiry",
-      "priority": "low",
+      "category": "Bus Transport",
+      "subcategory": "Refund",
+      "priority": "medium",
       "error_type": "None"
     },
     "intelligence": {
-      "sentiment": "Neutral",
+      "sentiment": "Negative",
       "confidence": 0.9,
-      "latency": "1.04s",
-      "latency_raw": 1.0383992195129395,
-      "fix_protocol": "No action required as this is a test ticket."
+      "latency": "0.84s",
+      "latency_raw": 0.8383572101593018,
+      "fix_protocol": "Review the customer's ticket and process a refund according to the company's refund policy for delayed buses."
     },
-    "neural_response": "Thank you for creating a test ticket, this helps us verify our system's functionality."
+    "neural_response": "Dear customer, sorry to hear that your bus was delayed. We are looking into this matter and will process your refund as soon as possible, according to our refund policy for delayed services."
   },
   "diagnostics": {
     "model": "groq-llama-3.3-70b",
