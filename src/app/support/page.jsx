@@ -44,17 +44,17 @@ export default function SupportPage() {
 
     try {
       // Simulate/Call AI Classification
-      const res = await fetch("/api/webhook/classify", {
+      const res = await fetch("/api/webhook/support", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          ticketId: `TIC-${Math.floor(Math.random() * 10000)}`,
           subject: formData.summary,
           description: formData.description
         })
       })
       const data = await res.json()
-      setAiResult(data.classification)
+      // Map to the new nested data structure from the Python engine
+      setAiResult(data.data?.classification || { category: "Pending", priority: "medium" })
       
       // Delay to show classification success before final submission state
       setTimeout(() => {
